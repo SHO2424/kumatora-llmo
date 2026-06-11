@@ -53,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="scroll-smooth">
-      <body className="min-h-full bg-stone-50 font-sans text-stone-800 antialiased">
+      <body className="min-h-full bg-wall font-sans text-ink antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

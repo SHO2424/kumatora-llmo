@@ -30,17 +30,15 @@ export function StoreMap({ embedUrl, directionsUrl }: StoreMapProps) {
   }, []);
 
   return (
-    <div className="border-t border-stone-200">
+    <div className="border-t border-line">
       <div className="p-8 sm:p-10">
-        <h3 className="font-serif text-lg font-bold text-stone-900">
-          アクセス・地図
-        </h3>
-        <p className="mt-2 text-sm text-stone-600">
+        <h3 className="font-serif text-lg font-bold text-ink">アクセス・地図</h3>
+        <p className="mt-2 text-sm text-ink-muted">
           茅場町駅から徒歩約3分。下の地図から店舗へのルートをご確認いただけます。
         </p>
         <div
           ref={containerRef}
-          className="mt-6 overflow-hidden rounded-xl border border-stone-200 shadow-sm"
+          className="mt-6 overflow-hidden rounded-sm border border-line shadow-sm"
         >
           {shouldLoad ? (
             <iframe
@@ -52,8 +50,8 @@ export function StoreMap({ embedUrl, directionsUrl }: StoreMapProps) {
               allowFullScreen
             />
           ) : (
-            <div className="flex aspect-[16/10] w-full items-center justify-center bg-stone-100 sm:aspect-[21/9]">
-              <p className="text-sm text-stone-500">地図を読み込み中...</p>
+            <div className="flex aspect-[16/10] w-full items-center justify-center bg-wall sm:aspect-[21/9]">
+              <p className="text-sm text-ink-light">地図を読み込み中...</p>
             </div>
           )}
         </div>
@@ -61,7 +59,7 @@ export function StoreMap({ embedUrl, directionsUrl }: StoreMapProps) {
           href={directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-rose-900 transition hover:text-rose-700"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-gold-dark transition hover:text-gold"
         >
           Googleマップでルートを見る
           <span aria-hidden="true">→</span>
