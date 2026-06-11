@@ -5,6 +5,9 @@
   --foreground: #292524;
   --accent: #9f1239;
   --accent-light: #fff1f2;
+  --font-sans-jp: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI",
+    "Meiryo", sans-serif;
+  --font-serif-jp: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
 }
 
 @theme inline {
@@ -12,16 +15,20 @@
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
-  --font-sans: var(--font-noto-sans);
-  --font-serif: var(--font-noto-serif);
+  --font-sans: var(--font-sans-jp);
+  --font-serif: var(--font-serif-jp);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-noto-sans), "Hiragino Sans", sans-serif;
+  font-family: var(--font-sans-jp);
 }
 
 .font-serif {
-  font-family: var(--font-noto-serif), "Hiragino Mincho ProN", serif;
+  font-family: var(--font-serif-jp);
+}
+
+.jp-phrase {
+  display: inline-block;
 }

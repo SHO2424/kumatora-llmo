@@ -1,20 +1,7 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { restaurantJsonLd } from "@/lib/restaurant-schema";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
-
-const notoSans = Noto_Sans_JP({
-  variable: "--font-noto-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
-
-const notoSerif = Noto_Serif_JP({
-  variable: "--font-noto-serif",
-  subsets: ["latin"],
-  weight: ["600", "700"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -65,16 +52,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSans.variable} ${notoSerif.variable} scroll-smooth`}>
-      <head>
+    <html lang="ja" className="scroll-smooth">
+      <body className="min-h-full bg-stone-50 font-sans text-stone-800 antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(restaurantJsonLd),
           }}
         />
-      </head>
-      <body className="min-h-full bg-stone-50 font-sans text-stone-800 antialiased">
         {children}
       </body>
     </html>
