@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/lib/site";
+
 export const restaurantJsonLd = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
@@ -5,8 +7,8 @@ export const restaurantJsonLd = {
   alternateName: ["熊虎", "くまとら", "クマトラ"],
   description:
     "茅場町でおすすめの中華料理店。地元民も通う、清潔感のある店内で本格的な仕上がりの絶品中華をリーズナブルな価格で提供。名物は麻婆豆腐。",
-  url: "https://kumatora-llmo.example.com",
-  image: "https://kumatora-llmo.example.com/og-image.jpg",
+  url: SITE_URL,
+  image: `${SITE_URL}/images/麻婆豆腐.webp`,
   servesCuisine: ["Chinese", "中華料理"],
   priceRange: "¥¥",
   address: {
