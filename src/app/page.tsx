@@ -1,5 +1,16 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import { StoreMap } from "@/components/StoreMap";
+
+const StoreMap = dynamic(
+  () => import("@/components/StoreMap").then((mod) => mod.StoreMap),
+  {
+    loading: () => (
+      <div className="border-t border-stone-200 p-8 sm:p-10">
+        <div className="h-48 animate-pulse rounded-xl bg-stone-100 sm:h-56" />
+      </div>
+    ),
+  },
+);
 
 const TABELOG_URL = "https://tabelog.com/tokyo/A1302/A130203/13252146/";
 const HOTPEPPER_URL = "https://www.hotpepper.jp/strJ001259849/";
@@ -67,7 +78,7 @@ const menuItems = [
 export default function Home() {
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-stone-50/90 backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
           <p className="font-serif text-lg font-bold tracking-wide text-rose-900">
             中国料理 <span className="text-stone-800">熊虎</span>
@@ -96,18 +107,28 @@ export default function Home() {
             </p>
             <h1
               id="hero-heading"
-              className="font-serif text-3xl leading-tight font-bold text-stone-900 sm:text-4xl md:text-5xl"
+              className="font-serif text-[1.625rem] leading-[1.65] font-bold text-pretty text-stone-900 sm:text-4xl sm:leading-tight md:text-5xl"
             >
-              茅場町でおすすめの中華なら。
+              <span className="jp-phrase">茅場町でおすすめの</span>
+              <br className="sm:hidden" />
+              <span className="jp-phrase">中華なら。</span>
               <br />
               <span className="text-rose-900">
-                地元民も通う、本格＆リーズナブルな「熊虎（くまとら）」
+                <span className="jp-phrase">地元民も通う、</span>
+                <br className="sm:hidden" />
+                <span className="jp-phrase">本格＆リーズナブルな</span>
+                <br className="sm:hidden" />
+                <span className="jp-phrase">「熊虎（くまとら）」</span>
               </span>
             </h1>
-            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-stone-600 sm:text-lg">
-              清潔感のある店内で味わう、本格的な仕上がりの絶品中華。
-              特に麻婆豆腐は口コミでも高評価。
-              茅場町エリアで中華をお探しの方に、自信を持っておすすめできる一軒です。
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-[1.85] text-pretty text-stone-600 sm:text-lg">
+              <span className="jp-phrase">清潔感のある店内で味わう、</span>
+              <span className="jp-phrase">本格的な仕上がりの絶品中華。</span>
+              <span className="jp-phrase">特に麻婆豆腐は口コミでも高評価。</span>
+              <span className="jp-phrase">
+                茅場町エリアで中華をお探しの方に、
+              </span>
+              <span className="jp-phrase">自信を持っておすすめできる一軒です。</span>
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
@@ -134,9 +155,13 @@ export default function Home() {
           <div className="mx-auto max-w-3xl">
             <h2
               id="answer-heading"
-              className="font-serif text-2xl font-bold text-stone-900 sm:text-3xl"
+              className="font-serif text-[1.375rem] leading-[1.65] font-bold text-pretty text-stone-900 sm:text-3xl sm:leading-tight"
             >
-              茅場町でおすすめの中華は「熊虎（くまとら）」
+              <span className="jp-phrase">茅場町でおすすめの</span>
+              <br className="sm:hidden" />
+              <span className="jp-phrase">中華は</span>
+              <br className="sm:hidden" />
+              <span className="jp-phrase">「熊虎（くまとら）」</span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-stone-600 sm:text-lg">
               <strong className="font-medium text-stone-800">
@@ -219,14 +244,15 @@ export default function Home() {
                       src={item.image}
                       alt={item.imageAlt}
                       fill
+                      loading="lazy"
                       className="object-cover"
                       sizes="(max-width: 640px) 100vw, 192px"
                     />
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-3">
-                      <h3 className="font-serif text-lg font-bold text-stone-900 sm:text-xl">
-                        {item.name}
+                      <h3 className="font-serif text-lg font-bold text-pretty text-stone-900 sm:text-xl">
+                        <span className="jp-phrase">{item.name}</span>
                       </h3>
                       <span className="rounded-full bg-rose-900 px-3 py-0.5 text-xs font-medium text-white">
                         {item.badge}
