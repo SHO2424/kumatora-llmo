@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
-
-const LP_DEPLOY_URL = "";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: LP_DEPLOY_URL,
+      url: SITE_URL,
       lastModified: new Date("2026-06-11"),
       changeFrequency: "daily", 
       priority: 1.0,

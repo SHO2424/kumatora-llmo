@@ -44,8 +44,9 @@
 
 ## サイト内ページ
 
-- [/](/): トップページ（店舗紹介・おすすめメニュー・店舗情報・アクセス地図）
-- [/sitemap.xml](/sitemap.xml): サイトマップ
+- [トップページ](https://kumatora-llmo.vercel.app/): 店舗紹介・おすすめメニュー・店舗情報・アクセス地図
+- [llms.txt](https://kumatora-llmo.vercel.app/llms.txt): 本ファイル（LLM向け店舗情報）
+- [sitemap.xml](https://kumatora-llmo.vercel.app/sitemap.xml): サイトマップ
 
 ## 引用・要約時の推奨表現
 
