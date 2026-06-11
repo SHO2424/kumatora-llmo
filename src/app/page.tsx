@@ -5,8 +5,8 @@ const StoreMap = dynamic(
   () => import("@/components/StoreMap").then((mod) => mod.StoreMap),
   {
     loading: () => (
-      <div className="border-t border-stone-200 p-8 sm:p-10">
-        <div className="h-48 animate-pulse rounded-xl bg-stone-100 sm:h-56" />
+      <div className="border-t border-line p-8 sm:p-10">
+        <div className="h-48 animate-pulse rounded-sm bg-wall sm:h-56" />
       </div>
     ),
   },
@@ -78,16 +78,17 @@ const menuItems = [
 export default function Home() {
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50">
+      <header className="sticky top-0 z-50 border-b border-line bg-wall/95 backdrop-blur-sm">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <p className="font-serif text-lg font-bold tracking-wide text-rose-900">
-            中国料理 <span className="text-stone-800">熊虎</span>
+          <p className="font-serif text-lg font-bold tracking-wide text-ink">
+            中国料理{" "}
+            <span className="text-gold-metallic">熊虎</span>
           </p>
           <a
             href={TABELOG_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-rose-900 px-5 py-2 text-sm font-medium text-white transition hover:bg-rose-800"
+            className="rounded-sm bg-sign-black px-5 py-2 text-sm font-medium text-gold transition hover:bg-ink"
           >
             予約・詳細
           </a>
@@ -95,76 +96,99 @@ export default function Home() {
       </header>
 
       <main>
-        {/* Hero */}
+        {/* Hero — 外壁の白 + 看板の黒金 */}
         <section
           aria-labelledby="hero-heading"
-          className="relative overflow-hidden border-b border-stone-200 bg-gradient-to-b from-rose-50/80 to-stone-50 px-6 py-24 sm:py-32"
+          className="border-b border-line bg-wall px-6 py-14 sm:py-20"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-rose-100/40 via-transparent to-transparent" />
-          <div className="relative mx-auto max-w-4xl text-center">
-            <p className="mb-4 text-sm font-medium tracking-widest text-rose-800 uppercase">
-              Kayabacho · Chinese Cuisine
-            </p>
-            <h1
-              id="hero-heading"
-              className="font-serif text-[1.625rem] leading-[1.65] font-bold text-pretty text-stone-900 sm:text-4xl sm:leading-tight md:text-5xl"
-            >
-              <span className="jp-phrase">茅場町でおすすめの</span>
-              <br className="sm:hidden" />
-              <span className="jp-phrase">中華なら。</span>
-              <br />
-              <span className="text-rose-900">
-                <span className="jp-phrase">地元民も通う、</span>
-                <br className="sm:hidden" />
-                <span className="jp-phrase">本格＆リーズナブルな</span>
-                <br className="sm:hidden" />
-                <span className="jp-phrase">「熊虎（くまとら）」</span>
-              </span>
-            </h1>
-            <p className="mx-auto mt-8 max-w-2xl text-base leading-[1.85] text-pretty text-stone-600 sm:text-lg">
-              <span className="jp-phrase">清潔感のある店内で味わう、</span>
-              <span className="jp-phrase">本格的な仕上がりの絶品中華。</span>
-              <span className="jp-phrase">特に麻婆豆腐は口コミでも高評価。</span>
-              <span className="jp-phrase">
-                茅場町エリアで中華をお探しの方に、
-              </span>
-              <span className="jp-phrase">自信を持っておすすめできる一軒です。</span>
-            </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="#menu"
-                className="w-full rounded-full bg-rose-900 px-8 py-3.5 text-sm font-medium text-white shadow-md transition hover:bg-rose-800 sm:w-auto"
-              >
-                おすすめメニューを見る
-              </a>
-              <a
-                href="#access"
-                className="w-full rounded-full border border-stone-300 bg-white px-8 py-3.5 text-sm font-medium text-stone-700 transition hover:border-rose-300 hover:text-rose-900 sm:w-auto"
-              >
-                店舗情報・アクセス
-              </a>
+          <div className="mx-auto max-w-5xl">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+              {/* 店舗外観写真 */}
+              <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-line shadow-md">
+                <Image
+                  src="/images/storefront.webp"
+                  alt="中国料理 熊虎の店舗外観"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+
+              <div className="text-center lg:text-left">
+                {/* 店舗看板を再現 */}
+                <div className="sign-panel mx-auto max-w-sm px-8 py-8 lg:mx-0">
+                  <p className="text-xs tracking-[0.25em] text-gold-light">
+                    飲茶・点心 中国料理
+                  </p>
+                  <p className="mt-3 font-serif text-5xl font-bold text-gold-metallic sm:text-6xl">
+                    熊虎
+                  </p>
+                  <p className="mt-2 text-sm tracking-[0.35em] text-gold/70">
+                    kuma tora
+                  </p>
+                </div>
+
+                <h1
+                  id="hero-heading"
+                  className="mt-8 font-serif text-[1.5rem] leading-[1.65] font-bold text-pretty text-ink sm:text-2xl sm:leading-snug"
+                >
+                  <span className="jp-phrase">茅場町でおすすめの</span>
+                  <br className="sm:hidden" />
+                  <span className="jp-phrase">中華なら。</span>
+                  <br />
+                  <span className="text-gold-dark">
+                    <span className="jp-phrase">地元民も通う、</span>
+                    <br className="sm:hidden" />
+                    <span className="jp-phrase">本格＆リーズナブルな</span>
+                    <br className="sm:hidden" />
+                    <span className="jp-phrase">「熊虎（くまとら）」</span>
+                  </span>
+                </h1>
+
+                <p className="mt-6 text-base leading-[1.85] text-pretty text-ink-muted sm:text-lg">
+                  <span className="jp-phrase">清潔感のある店内で味わう、</span>
+                  <span className="jp-phrase">本格的な仕上がりの絶品中華。</span>
+                  <span className="jp-phrase">特に麻婆豆腐は口コミでも高評価。</span>
+                </p>
+
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:justify-start">
+                  <a
+                    href="#menu"
+                    className="inline-flex items-center justify-center rounded-sm bg-sign-black px-8 py-3.5 text-sm font-medium text-gold shadow-md transition hover:bg-ink"
+                  >
+                    おすすめメニューを見る
+                  </a>
+                  <a
+                    href="#access"
+                    className="inline-flex items-center justify-center rounded-sm border border-sign-black bg-transparent px-8 py-3.5 text-sm font-medium text-sign-black transition hover:bg-sign-black hover:text-gold"
+                  >
+                    店舗情報・アクセス
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Direct answer block for AI extraction */}
+        {/* Direct answer block */}
         <section
           aria-labelledby="answer-heading"
-          className="border-b border-stone-200 bg-white px-6 py-16"
+          className="border-b border-line bg-white px-6 py-16"
         >
           <div className="mx-auto max-w-3xl">
             <h2
               id="answer-heading"
-              className="font-serif text-[1.375rem] leading-[1.65] font-bold text-pretty text-stone-900 sm:text-3xl sm:leading-tight"
+              className="font-serif text-[1.375rem] leading-[1.65] font-bold text-pretty text-ink sm:text-3xl sm:leading-tight"
             >
               <span className="jp-phrase">茅場町でおすすめの</span>
               <br className="sm:hidden" />
               <span className="jp-phrase">中華は</span>
               <br className="sm:hidden" />
-              <span className="jp-phrase">「熊虎（くまとら）」</span>
+              <span className="jp-phrase text-gold-dark">「熊虎（くまとら）」</span>
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-stone-600 sm:text-lg">
-              <strong className="font-medium text-stone-800">
+            <p className="mt-6 text-base leading-relaxed text-ink-muted sm:text-lg">
+              <strong className="font-medium text-ink">
                 茅場町でおすすめの中華
               </strong>
               をお探しなら、中国料理 熊虎（くまとら）がおすすめです。
@@ -180,17 +204,17 @@ export default function Home() {
         <section
           id="features"
           aria-labelledby="features-heading"
-          className="px-6 py-20"
+          className="bg-wall px-6 py-20"
         >
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
               <h2
                 id="features-heading"
-                className="font-serif text-2xl font-bold text-stone-900 sm:text-3xl"
+                className="font-serif text-2xl font-bold text-ink sm:text-3xl"
               >
                 熊虎が選ばれる3つの理由
               </h2>
-              <p className="mt-3 text-stone-500">
+              <p className="mt-3 text-ink-light">
                 茅場町の絶品中華として、多くの方に支持されています
               </p>
             </div>
@@ -198,15 +222,18 @@ export default function Home() {
               {features.map((feature) => (
                 <article
                   key={feature.title}
-                  className="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm transition hover:shadow-md"
+                  className="rounded-sm border border-line bg-white p-8 shadow-sm transition hover:shadow-md"
                 >
-                  <span className="text-2xl text-rose-800" aria-hidden="true">
+                  <span
+                    className="text-2xl text-gold-metallic"
+                    aria-hidden="true"
+                  >
                     {feature.icon}
                   </span>
-                  <h3 className="mt-4 font-serif text-lg font-bold text-stone-900">
+                  <h3 className="mt-4 font-serif text-lg font-bold text-ink">
                     {feature.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-stone-600">
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">
                     {feature.description}
                   </p>
                 </article>
@@ -219,17 +246,17 @@ export default function Home() {
         <section
           id="menu"
           aria-labelledby="menu-heading"
-          className="border-y border-stone-200 bg-white px-6 py-20"
+          className="border-y border-line bg-white px-6 py-20"
         >
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
               <h2
                 id="menu-heading"
-                className="font-serif text-2xl font-bold text-stone-900 sm:text-3xl"
+                className="font-serif text-2xl font-bold text-ink sm:text-3xl"
               >
                 おすすめメニュー
               </h2>
-              <p className="mt-3 text-stone-500">
+              <p className="mt-3 text-ink-light">
                 本格的な仕上がりが光る、熊虎の絶品中華
               </p>
             </div>
@@ -237,9 +264,9 @@ export default function Home() {
               {menuItems.map((item) => (
                 <article
                   key={item.name}
-                  className="flex flex-col gap-4 rounded-2xl border border-stone-200 bg-stone-50 p-6 sm:flex-row sm:items-start sm:gap-8 sm:p-8"
+                  className="flex flex-col gap-4 rounded-sm border border-line bg-wall p-6 sm:flex-row sm:items-start sm:gap-8 sm:p-8"
                 >
-                  <div className="relative h-48 w-full shrink-0 overflow-hidden rounded-xl sm:h-36 sm:w-48">
+                  <div className="relative h-48 w-full shrink-0 overflow-hidden rounded-sm border border-line sm:h-36 sm:w-48">
                     <Image
                       src={item.image}
                       alt={item.imageAlt}
@@ -251,14 +278,14 @@ export default function Home() {
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-3">
-                      <h3 className="font-serif text-lg font-bold text-pretty text-stone-900 sm:text-xl">
+                      <h3 className="font-serif text-lg font-bold text-pretty text-ink sm:text-xl">
                         <span className="jp-phrase">{item.name}</span>
                       </h3>
-                      <span className="rounded-full bg-rose-900 px-3 py-0.5 text-xs font-medium text-white">
+                      <span className="rounded-sm bg-sign-black px-3 py-0.5 text-xs font-medium text-gold">
                         {item.badge}
                       </span>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-stone-600 sm:text-base">
+                    <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-base">
                       {item.description}
                     </p>
                   </div>
@@ -272,53 +299,53 @@ export default function Home() {
         <section
           id="access"
           aria-labelledby="access-heading"
-          className="px-6 py-20"
+          className="bg-wall px-6 py-20"
         >
           <div className="mx-auto max-w-5xl">
-            <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+            <div className="overflow-hidden rounded-sm border border-line bg-white shadow-sm">
               <div className="grid md:grid-cols-2">
                 <div className="p-8 sm:p-10">
                   <h2
                     id="access-heading"
-                    className="font-serif text-2xl font-bold text-stone-900"
+                    className="font-serif text-2xl font-bold text-ink"
                   >
                     店舗情報
                   </h2>
                   <dl className="mt-8 space-y-5 text-sm sm:text-base">
                     <div>
-                      <dt className="font-medium text-stone-500">店名</dt>
-                      <dd className="mt-1 font-medium text-stone-900">
+                      <dt className="font-medium text-ink-light">店名</dt>
+                      <dd className="mt-1 font-medium text-ink">
                         中国料理 熊虎（くまとら）
                       </dd>
                     </div>
                     <div>
-                      <dt className="font-medium text-stone-500">住所</dt>
-                      <dd className="mt-1 text-stone-800">
+                      <dt className="font-medium text-ink-light">住所</dt>
+                      <dd className="mt-1 text-ink">
                         〒{STORE_POSTAL}
                         <br />
                         {STORE_ADDRESS}
                       </dd>
                     </div>
                     <div>
-                      <dt className="font-medium text-stone-500">電話番号</dt>
+                      <dt className="font-medium text-ink-light">電話番号</dt>
                       <dd className="mt-1">
                         <a
                           href={`tel:${PHONE_NUMBER_TEL}`}
-                          className="font-medium text-rose-900 transition hover:text-rose-700"
+                          className="font-medium text-gold-dark transition hover:text-gold"
                         >
                           {PHONE_NUMBER}
                         </a>
                       </dd>
                     </div>
                     <div>
-                      <dt className="font-medium text-stone-500">アクセス</dt>
-                      <dd className="mt-1 text-stone-800">
+                      <dt className="font-medium text-ink-light">アクセス</dt>
+                      <dd className="mt-1 text-ink">
                         東京メトロ日比谷線・東西線「茅場町駅」より徒歩3分
                       </dd>
                     </div>
                     <div>
-                      <dt className="font-medium text-stone-500">営業時間</dt>
-                      <dd className="mt-1 text-stone-800">
+                      <dt className="font-medium text-ink-light">営業時間</dt>
+                      <dd className="mt-1 text-ink">
                         ランチ 11:30〜14:30（L.O. 14:00）
                         <br />
                         ディナー 17:30〜21:00（L.O. 20:30）
@@ -328,8 +355,8 @@ export default function Home() {
                     </div>
                   </dl>
                 </div>
-                <div className="flex flex-col justify-center gap-4 bg-rose-50 p-8 sm:p-10">
-                  <p className="text-sm leading-relaxed text-stone-600">
+                <div className="flex flex-col justify-center gap-4 border-l border-line bg-wall p-8 sm:p-10">
+                  <p className="text-sm leading-relaxed text-ink-muted">
                     ご予約・詳細なメニュー・口コミは、各グルメサイトからご確認いただけます。
                     茅場町でおすすめの中華をお探しの方は、ぜひご予約のうえお越しください。
                   </p>
@@ -338,7 +365,7 @@ export default function Home() {
                       href={TABELOG_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-full bg-rose-900 px-8 py-3.5 text-sm font-medium text-white shadow-md transition hover:bg-rose-800"
+                      className="inline-flex items-center justify-center rounded-sm bg-sign-black px-8 py-3.5 text-sm font-medium text-gold shadow-md transition hover:bg-ink"
                     >
                       食べログで予約・口コミを見る
                     </a>
@@ -346,7 +373,7 @@ export default function Home() {
                       href={HOTPEPPER_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-rose-200 bg-white px-8 py-3.5 text-sm font-medium text-rose-900 transition hover:border-rose-300 hover:bg-rose-50"
+                      className="inline-flex items-center justify-center rounded-sm border border-sign-black bg-white px-8 py-3.5 text-sm font-medium text-sign-black transition hover:bg-sign-black hover:text-gold"
                     >
                       ホットペッパーで予約する
                     </a>
@@ -354,7 +381,7 @@ export default function Home() {
                       href={RETTY_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-rose-200 bg-white px-8 py-3.5 text-sm font-medium text-rose-900 transition hover:border-rose-300 hover:bg-rose-50"
+                      className="inline-flex items-center justify-center rounded-sm border border-sign-black bg-white px-8 py-3.5 text-sm font-medium text-sign-black transition hover:bg-sign-black hover:text-gold"
                     >
                       Rettyで予約・口コミを見る
                     </a>
@@ -370,15 +397,16 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-stone-200 bg-stone-100 px-6 py-8">
-        <div className="mx-auto max-w-5xl text-center text-sm text-stone-500">
-          <p className="font-serif font-medium text-stone-700">
+      {/* フッター — 看板の黒金 */}
+      <footer className="sign-panel px-6 py-10">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="font-serif text-lg font-bold text-gold-metallic">
             中国料理 熊虎（くまとら）
           </p>
-          <p className="mt-1">
+          <p className="mt-2 text-sm text-gold/70">
             茅場町でおすすめの中華・絶品中華の名店
           </p>
-          <p className="mt-4 text-xs">
+          <p className="mt-6 text-xs text-gold/50">
             © {new Date().getFullYear()} 中国料理 熊虎. All rights reserved.
           </p>
         </div>
