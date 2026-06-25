@@ -8,35 +8,37 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "茅場町でおすすめの中華｜中国料理 熊虎（くまとら）｜絶品中華・麻婆豆腐",
+  title:
+    "茅場町 接待・会食の中国料理｜中国料理 熊虎（くまとら）｜ディナーコース・麻婆豆腐",
   description:
-    "茅場町でおすすめの中華なら中国料理 熊虎（くまとら）。地元民も通う人気店で、清潔感のある店内と本格的な仕上がりの絶品中華をリーズナブルな価格で。麻婆豆腐が名物です。",
+    "茅場町駅徒歩3分。接待・会食に使える上質な中国料理 熊虎（くまとら）。落ち着いた空間で名物の本格四川麻婆豆腐とディナーコースを。ビジネスランチ・少人数の会食にも。",
   verification: {
     google: "S25m-pX0mzU1IyFHkYQTx05BoQh_OOVhOEr5aXM7tDc",
   },
   keywords: [
     "茅場町",
-    "おすすめ",
+    "接待",
+    "会食",
+    "中国料理",
     "中華",
-    "絶品中華",
     "熊虎",
     "くまとら",
     "麻婆豆腐",
-    "ランチ",
-    "地元民",
-    "リーズナブル",
+    "ディナーコース",
+    "ビジネスランチ",
+    "本格中華",
   ],
   openGraph: {
-    title: "茅場町でおすすめの中華｜中国料理 熊虎（くまとら）",
+    title: "茅場町 接待・会食の中国料理｜中国料理 熊虎（くまとら）",
     description:
-      "地元民も通う、清潔感と本格的な仕上がりが魅力の絶品中華。麻婆豆腐が人気のリーズナブルな中華料理店です。",
+      "落ち着いた空間で、名物料理とディナーコースを楽しめる中国料理 熊虎。茅場町駅徒歩3分。",
     url: SITE_URL,
     locale: "ja_JP",
     type: "website",
     images: [
       {
-        url: "/images/麻婆豆腐.webp",
-        alt: "中国料理 熊虎の本格麻婆豆腐",
+        url: "/images/storefront.webp",
+        alt: "中国料理 熊虎の店舗外観",
       },
     ],
   },
@@ -53,13 +55,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="scroll-smooth">
-      <body className="min-h-full bg-wall font-sans text-ink antialiased">
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(restaurantJsonLd),
           }}
         />
+      </head>
+      <body className="min-h-full bg-wall font-sans text-ink antialiased">
         {children}
       </body>
     </html>
