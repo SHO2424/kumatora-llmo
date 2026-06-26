@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { faqJsonLd } from "@/lib/faq-schema";
 import { restaurantJsonLd } from "@/lib/restaurant-schema";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -60,6 +61,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(restaurantJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd),
           }}
         />
       </head>

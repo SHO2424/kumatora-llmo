@@ -54,3 +54,38 @@ body {
   color: var(--gold);
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
 }
+
+/* RAG向けデータテーブル */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid var(--line);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table th {
+  background-color: var(--wall);
+  font-weight: 500;
+  color: var(--ink-light);
+  white-space: nowrap;
+}
+
+.data-table tbody tr:nth-child(even) td {
+  background-color: rgba(245, 244, 240, 0.5);
+}
+
+@media (max-width: 640px) {
+  .data-table-responsive {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
